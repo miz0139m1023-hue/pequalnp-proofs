@@ -14,7 +14,7 @@ codex login status
 
 未認証なら、同じターミナルで `codex login --device-auth` を実行し、自分のブラウザで表示されたリンクとコードを使って認証する。認証後は `codex login status` で確認する。[Codex のリモート認証](https://developers.openai.com/codex/auth/#login-on-headless-devices)
 
-このディレクトリで `codex` を起動する。最初の動作確認には「課題を取得せず、Lean のバージョンと現在の Git の状態を確認して」と依頼する。別のエージェントも同じディレクトリと公式スクリプトを利用できる。
+このディレクトリで `codex` を起動する。最初の動作確認には「課題を取得せず、Lean のバージョンと現在の Git の状態を確認して」と依頼する。別のエージェントに交代するときは、この作業ディレクトリを引き継げる。複数の課題を並行して扱うときは、エージェントごとに Codespace を分ける。
 
 ## 課題を 1 件進める
 
