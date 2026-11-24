@@ -1,0 +1,9 @@
+{
+  "name": "PEqualNP proofs",
+  "image": "mcr.microsoft.com/devcontainers/universal:6-noble",
+  "remoteUser": "codespace",
+  "remoteEnv": {
+    "PATH": "/home/codespace/.elan/bin:/home/codespace/.local/bin:${containerEnv:PATH}"
+  },
+  "postCreateCommand": ["bash", ".devcontainer/setup.sh"]
+}
