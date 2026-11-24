@@ -42,3 +42,12 @@ bash tools/pnp.sh setup
 (cd lean && lake build PEqualNP.Defs.Base)
 codex --version
 printf 'Proof workspace ready: %s\n' "$proof_dir"
+
+# Make a successful build visible to the owner outside the running Codespace.
+if [[ ${CODESPACES:-} == true && ${GITHUB_REPOSITORY:-} == miz0139m1023-hue/pequalnp-proofs ]]; then
+  config_commit=$(git -C "$root" rev-parse HEAD)
+  gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$config_commit" \
+    -f state=success -f context=codespaces/lean-setup \
+    -f description="Built PEqualNP.Defs.Base and verified the Codex CLI in GitHub Codespaces" \
+    --silent || printf 'GitHub could not display the build status. The local build passed.\n' >&2
+fi
